@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    uses: steel0237-test/template/.github/workflows/deploy.yml@main
+    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
     with:
       ssh_host: "${{ secrets.SSH_HOST_PUTEVKA_STAGE }}"
 #      ssh_user: "${{ secrets.SSH_USER_PUTEVKA_STAGE }}"
