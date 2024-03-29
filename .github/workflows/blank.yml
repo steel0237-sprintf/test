@@ -1,0 +1,16 @@
+name: build and deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    uses: steel0237-test/template/.github/workflows/deploy.yml@main
+    with:
+      ssh_host: "${{ secrets.SSH_HOST_PUTEVKA_STAGE }}"
+#      ssh_user: "${{ secrets.SSH_USER_PUTEVKA_STAGE }}"
+#      ssh_key: "${{ secrets.SSH_KEY_PUTEVKA_STAGE }}"
+      env: 'stage'
+
