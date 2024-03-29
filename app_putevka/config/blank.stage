@@ -1,0 +1,16 @@
+name: build and deployment
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+    uses: steel0237/template/.github/workflows/php-build.yml@main
+    with:
+      env: 'pro'
+
+

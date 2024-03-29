@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+
+  php:
+    build:
+      context: ../
+      dockerfile: .build/docker/php/Dockerfile
+      args:
+        BUILDUID: ${BUILDUID:-1000}
+        BUILDGID: ${BUILDGID:-1000}
+
+  nginx:
+    build:
+      context: ../
+      dockerfile: .build/docker/nginx/Dockerfile
+      args:
+        BUILDUID: ${BUILDUID:-1000}
+        BUILDGID: ${BUILDGID:-1000}
+

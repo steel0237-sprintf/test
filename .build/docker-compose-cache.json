@@ -1,0 +1,30 @@
+{
+  "target": {
+
+    "php": {
+      "cache-from": [
+        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/php:cache"
+      ],
+      "cache-to": [
+        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/php:cache"
+      ],
+      "output": [
+        "type=docker"
+      ]
+    },
+
+    "nginx": {
+      "cache-from": [
+        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/nginx:cache"
+      ],
+      "cache-to": [
+        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/nginx:cache"
+      ],
+      "output": [
+        "type=docker"
+      ]
+    }
+
+
+  }
+}
