@@ -9,7 +9,7 @@
         "type=registry,ref=ghcr.io/steel0237-sprintf/test/php:cache"
       ],
       "output": [
-        "type=docker"
+        "type=registry"
       ]
     },
 
@@ -21,7 +21,7 @@
         "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx:cache"
       ],
       "output": [
-        "type=docker"
+        "type=registry"
       ]
     }
 
