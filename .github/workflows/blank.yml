@@ -6,6 +6,11 @@ on:
       - main
 
 jobs:
+  test:
+    uses: webfactory/ssh-agent@v0.9.0
+    with:
+      ssh-private-key: ${{ secrets.SSH_KEY }}
+
   deploy:
     uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
     with:
