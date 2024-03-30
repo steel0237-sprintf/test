@@ -15,3 +15,4 @@ jobs:
       env: 'stage'
     secrets:
       SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
