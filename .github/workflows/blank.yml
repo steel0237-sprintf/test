@@ -13,6 +13,6 @@ jobs:
     steps:
       - shell: bash
         env:
-          SUPER_SECRET: ${{ secrets.SSH_KEY }}
+          SUPER_SECRET: ${{ secrets.SSH_HOST }}
         run: |
              echo "$SUPER_SECRET"
