@@ -3,10 +3,10 @@
 
     "php": {
       "cache-from": [
-        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/php:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/php:cache"
       ],
       "cache-to": [
-        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/php:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/php:cache"
       ],
       "output": [
         "type=docker"
@@ -15,10 +15,10 @@
 
     "nginx": {
       "cache-from": [
-        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/nginx:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx:cache"
       ],
       "cache-to": [
-        "type=registry,ref=ghcr.io/codiny-com/putevkaNew/nginx:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx:cache"
       ],
       "output": [
         "type=docker"
