@@ -24,6 +24,7 @@ jobs:
             IdentityFile ~/.ssh/staging.key
             StrictHostKeyChecking no
           END
+          ssh -v github@staging ls -la
         env:
           SSH_USER: 'github'
           SSH_KEY: ${{ secrets.SSH_KEY }}
