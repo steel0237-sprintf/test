@@ -79,5 +79,3 @@ clean-all:
 	@yes | docker system prune -a
 	@yes | docker volume prune
 	@echo "Cleaned $(ENV) !"
-
-
