@@ -10,9 +10,34 @@ jobs:
     name: "Deploy to staging"
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # needs: test
     steps:
-      - shell: bash
-        env:
-          SUPER_SECRET: ${{ secrets.SSH_HOST }}
+      - name: Configure SSH
         run: |
-             echo "$SUPER_SECRET"
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
+          ssh -v github@staging ls -la
+        env:
+          SSH_USER: 'github'
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+#  deploy:
+#    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
+#    with:
+#      ssh_host: '${{ secrets.ssh_host }}'
+#      ssh_user: "${{ secrets.SSH_USER_PUTEVKA_STAGE }}"
+#      ssh_key: "${{ secrets.SSH_KEY_PUTEVKA_STAGE }}"
+#      env: 'stage'
+#    secrets:
+#      SSH_HOST: ${{ secrets.SSH_HOST }}
+#      SSH_KEY: ${{ secrets.SSH_KEY }}
+
+
