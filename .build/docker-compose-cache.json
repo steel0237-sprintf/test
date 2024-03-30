@@ -3,10 +3,10 @@
 
     "php": {
       "cache-from": [
-        "type=registry,ref=ghcr.io/steel0237-sprintf/test/php:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/php-cache:cache"
       ],
       "cache-to": [
-        "type=registry,ref=ghcr.io/steel0237-sprintf/test/php:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/php-cache:cache"
       ],
       "output": [
         "type=registry"
@@ -15,10 +15,10 @@
 
     "nginx": {
       "cache-from": [
-        "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx-cache:cache"
       ],
       "cache-to": [
-        "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx:cache"
+        "type=registry,ref=ghcr.io/steel0237-sprintf/test/nginx-cache:cache"
       ],
       "output": [
         "type=registry"
