@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   php:
-    image: ghcr.io/steel0237/test/php:${TAG:-latest}
+    image: ghcr.io/steel0237-sprintf/test/php:${TAG:-latest}
     logging:
       options:
         max-size: "50m"
@@ -18,7 +18,7 @@ services:
         constraints: [node.hostname == worker1]
 
   nginx:
-    image: ghcr.io/steel0237/test/nginx:${TAG:-latest}
+    image: ghcr.io/steel0237-sprintf/test/nginx:${TAG:-latest}
     ports:
       - "10081:80"
     logging:
