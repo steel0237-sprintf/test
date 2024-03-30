@@ -1,9 +1,8 @@
 version: '3.8'
 
 services:
-
   php:
-    image: ghcr.io/steel0237-sprintf/test/php:${TAG:-latest}
+    image: ghcr.io/steel0237-sprintf/test/php-web:${TAG:-latest}
     logging:
       options:
         max-size: "50m"
