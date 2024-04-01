@@ -6,8 +6,7 @@ on:
       - main
 
 jobs:
-#  build:
-#    permissions:
+#  build:#    permissions:
 #      contents: read
 #      packages: write
 #    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
@@ -24,6 +23,7 @@ jobs:
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SSH_KEY: ${{ secrets.SSH_KEY }}
       SSH_USER: ${{ secrets.SSH_USER }}
+
 
 
 
