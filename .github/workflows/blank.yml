@@ -6,12 +6,29 @@ on:
       - main
 
 jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
+    with:
+      env: 'pro'
   deploy:
+    permissions:
+      contents: read
+      packages: write
     uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
     with:
-      ssh_host: '${{ secrets.ssh_host }}'
-#      ssh_user: "${{ secrets.SSH_USER_PUTEVKA_STAGE }}"
-#      ssh_key: "${{ secrets.SSH_KEY_PUTEVKA_STAGE }}"
       env: 'stage'
+    secrets:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+
+
+
+
+
+
 
 

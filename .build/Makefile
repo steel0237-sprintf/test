@@ -61,7 +61,7 @@ push:
 	@docker buildx bake -f docker-compose.yaml -f docker-compose.$(ENV).yaml --file docker-compose-cache.json --pull --push || exit 1
 	@echo "Pushed $(ENV) !"
 
-deploy: push
+deploy:
 	@echo "Deploy $(ENV) ..."
 	@set -e
 	@$(STACK_DEPLOY) || exit 1
@@ -79,5 +79,3 @@ clean-all:
 	@yes | docker system prune -a
 	@yes | docker volume prune
 	@echo "Cleaned $(ENV) !"
-
-
