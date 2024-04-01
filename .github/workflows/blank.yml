@@ -6,13 +6,13 @@ on:
       - main
 
 jobs:
-  build:
-    permissions:
-      contents: read
-      packages: write
-    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
-    with:
-      env: 'pro'
+#  build:
+#    permissions:
+#      contents: read
+#      packages: write
+#    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
+#    with:
+#      env: 'pro'
   deploy:
     permissions:
       contents: read
