@@ -1,28 +1,45 @@
 name: build and deployment
 
+#on:
+#  push:
+#    branches:
+#      - main
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: 'Environment to deploy'
+        required: true
+        default: 'stage'
+        type: choice
+        options:
+          - djserver
+          - femil
+          - stage
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
 #  build:#    permissions:
 #      contents: read
 #      packages: write
 #    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
 #    with:
 #      env: 'pro'
-  deploy:
-    permissions:
-      contents: read
-      packages: write
-    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
-    with:
-      env: 'stage'
-    secrets:
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      SSH_KEY: ${{ secrets.SSH_KEY }}
-      SSH_USER: ${{ secrets.SSH_USER }}
+#  deploy:
+#    permissions:
+#      contents: read
+#      packages: write
+#    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
+#    with:
+#      env: 'stage'
+#    secrets:
+#      SSH_HOST: ${{ secrets.SSH_HOST }}
+#      SSH_KEY: ${{ secrets.SSH_KEY }}
+#      SSH_USER: ${{ secrets.SSH_USER }}
 
 
 
