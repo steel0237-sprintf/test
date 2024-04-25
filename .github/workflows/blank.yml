@@ -6,7 +6,6 @@ name: build and deployment
 #      - main
 on:
   push:
-    branches: [ * ]
   workflow_dispatch:
     inputs:
       environment:
