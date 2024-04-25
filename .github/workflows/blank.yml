@@ -8,7 +8,7 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      environment:
+      stage:
         description: 'Environment to deploy'
         required: true
         default: 'stage'
