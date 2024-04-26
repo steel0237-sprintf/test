@@ -32,7 +32,7 @@ jobs:
         shell: bash
         run: echo "$SECRETS_CONTEXT"
         env:
-         SECRETS_CONTEXT: ${{ toJson(vars.test) }}
+         SECRETS_CONTEXT: ${{ toJson(vars.test_$stage) }}
 
 #  build:#    permissions:
 #      contents: read
