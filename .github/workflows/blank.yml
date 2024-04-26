@@ -26,11 +26,10 @@ jobs:
       - name: view the secrets context
         shell: bash
         run: |
-             echo "$SECRETS_CONTEXT" > test
-             cat test
-             cat test | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
+             echo "$SECRETS_CONTEXT"
+             cat "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
         env:
-         SECRETS_CONTEXT: ${{ toJson(vars.secret) }}
+         SECRETS_CONTEXT: ${{vars.secret) }}
 
 #      - name: view the secrets context2
 #        shell: bash
