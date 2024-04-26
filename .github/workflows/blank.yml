@@ -22,7 +22,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      - name: view the secrets context
+        shell: bash
+        run: echo "$SECRETS_CONTEXT"
+        env:
+         SECRETS_CONTEXT: ${{ toJson(secrets) }}
 #  build:#    permissions:
 #      contents: read
 #      packages: write
