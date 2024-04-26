@@ -29,7 +29,7 @@ jobs:
              echo "$SECRETS_CONTEXT"
              cat "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
         env:
-         SECRETS_CONTEXT: ${{vars.secret) }}
+         SECRETS_CONTEXT: ${{ vars.secret }}
 
 #      - name: view the secrets context2
 #        shell: bash
