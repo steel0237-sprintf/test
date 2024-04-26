@@ -27,7 +27,7 @@ jobs:
         shell: bash
         run: |
              echo "$SECRETS_CONTEXT"
-             cat "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
+             echo "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
         env:
          SECRETS_CONTEXT: ${{ vars.secret }}
 
