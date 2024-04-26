@@ -26,8 +26,9 @@ jobs:
       - name: view the secrets context
         shell: bash
         run: |
-             echo "$SECRETS_CONTEXT"
-             echo "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"' >> $GITHUB_ENV
+             echo "$SECRETS_CONTEXT" > test
+             cat test
+             cat test | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
         env:
          SECRETS_CONTEXT: ${{ toJson(vars.secret) }}
 
