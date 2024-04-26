@@ -24,15 +24,18 @@ jobs:
       - uses: actions/checkout@v4
       - name: view the secrets context
         shell: bash
-        run: echo "$SECRETS_CONTEXT"
+        environment: ${{ input.stage }}
+        run: |
+             echo "$SECRETS_CONTEXT"
+             echo "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"' >> $GITHUB_ENV
         env:
          SECRETS_CONTEXT: ${{ toJson(vars.secret) }}
 
-      - name: view the secrets context2
-        shell: bash
-        run: echo "$SECRETS_CONTEXT"
-        env:
-         SECRETS_CONTEXT: ${{ toJson(vars.test_$stage) }}
+#      - name: view the secrets context2
+#        shell: bash
+#        run: echo "$SECRETS_CONTEXT"
+#        env:
+#         SECRETS_CONTEXT: ${{ toJson(vars.test_$stage) }}
 
 #  build:#    permissions:
 #      contents: read
