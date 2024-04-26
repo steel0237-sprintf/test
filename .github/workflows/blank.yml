@@ -20,11 +20,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: ${{ input.stage }}
     steps:
       - uses: actions/checkout@v4
       - name: view the secrets context
         shell: bash
-        environment: ${{ input.stage }}
         run: |
              echo "$SECRETS_CONTEXT"
              echo "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"' >> $GITHUB_ENV
