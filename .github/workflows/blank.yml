@@ -27,6 +27,13 @@ jobs:
         run: echo "$SECRETS_CONTEXT"
         env:
          SECRETS_CONTEXT: ${{ toJson(vars.secret) }}
+
+      - name: view the secrets context2
+        shell: bash
+        run: echo "$SECRETS_CONTEXT"
+        env:
+         SECRETS_CONTEXT: ${{ toJson(vars.test) }}
+
 #  build:#    permissions:
 #      contents: read
 #      packages: write
