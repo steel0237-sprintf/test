@@ -5,6 +5,9 @@ name: build and deployment
 #    branches:
 #      - main
 on:
+  push:
+    branches:
+      - test
   workflow_dispatch:
     inputs:
       stage:
