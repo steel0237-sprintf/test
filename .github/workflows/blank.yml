@@ -25,10 +25,15 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
-    if: ${{ !inputs.environment }}
-    with:
-      env: ${{ inputs.environment }}
+   steps:
+      - name: view the secrets context
+        run: |
+             echo ${{ inputs.environment }}
+
+#    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
+#    if: ${{ !inputs.environment }}
+#    with:
+#      env: ${{ inputs.environment }}
 
 
 
