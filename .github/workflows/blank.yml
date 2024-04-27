@@ -13,7 +13,7 @@ on:
       environment:
         description: 'Environment to deploy'
         required: true
-        default: 'stage'
+        default: stage
         type: choice
         options:
           - djserver
