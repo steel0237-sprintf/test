@@ -25,20 +25,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    runs-on: ubuntu-latest
-    steps:
-      - name: view the secrets context
-        if: "${{ inputs.environment != '' }}"
-        run: |
-             echo "111111111111111"
-             echo ${{ inputs.environment }}
-
-#    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
-#    if: ${{ !inputs.environment }}
-#    with:
-#      env: ${{ inputs.environment }}
-
-
+    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
+    with:
+      env: ${{ inputs.environment }}
 
 #  build:
 #    runs-on: ubuntu-latest
