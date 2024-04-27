@@ -40,7 +40,8 @@ jobs:
     needs: [set_environment]
     uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
     with:
-      env: ${{ needs.set_environment.steps.getconfig.outputs.CONFIG_JSON }}
+      env: ${{ inputs.environment }}
+      config: ${{ needs.set_environment.steps.getconfig.outputs.CONFIG_JSON }}
 
 #  build:
 #    runs-on: ubuntu-latest
