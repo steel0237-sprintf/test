@@ -31,6 +31,9 @@ jobs:
           echo "CONFIG_JSON=${CONFIG_JSON}" >> $GITHUB_OUTPUT
 
   build:
+    permissions:
+      contents: read
+      packages: write
     needs: [set_environment]
     uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
     with:
