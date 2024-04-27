@@ -18,13 +18,23 @@ on:
           - stage
 
 jobs:
-  environment: ${{ inputs.stage }}
+  set_environment:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+    steps:
+      - name: get config
+        id: getconfig
+        env:
+         CONFIG_JSON: ${{ var.CONFIG_JSON }}
+        run: |
+          echo "CONFIG_JSON=${CONFIG_JSON}" >> $GITHUB_OUTPUT
+
   build:
-      contents: read
-      packages: write
+    needs: [set_environment]
     uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
     with:
-      env: 'pro'
+      env: ${{ needs.set_environment.steps.getconfig.outputs.CONFIG_JSON }}
 
 #  build:
 #    runs-on: ubuntu-latest
