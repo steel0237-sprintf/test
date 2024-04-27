@@ -18,26 +18,13 @@ on:
           - stage
 
 jobs:
+  environment: ${{ inputs.stage }}
   build:
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.stage }}
-    steps:
-#      - uses: actions/checkout@v4
-      - uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
-        with:
-          env: 'pro'
-
-      - name: view the secrets context
-        shell: bash
-        run: |
-             echo "$SECRETS_CONTEXT"
-             echo "$SECRETS_CONTEXT" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"'
-        env:
-         SECRETS_CONTEXT: ${{ vars.secret }}
-
-
-
-
+      contents: read
+      packages: write
+    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
+    with:
+      env: 'pro'
 
 #  build:
 #    runs-on: ubuntu-latest
