@@ -25,7 +25,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-   steps:
+    steps:
       - name: view the secrets context
         run: |
              echo ${{ inputs.environment }}
