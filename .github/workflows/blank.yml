@@ -27,7 +27,7 @@ jobs:
       packages: write
     uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
     with:
-      env: ${{ inputs.environment }}
+      env: ${{ inputs.environment || 'stage' }}
 
 #  build:
 #    runs-on: ubuntu-latest
