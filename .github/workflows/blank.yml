@@ -25,6 +25,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+    runs-on: ubuntu-latest
     steps:
       - name: view the secrets context
         run: |
