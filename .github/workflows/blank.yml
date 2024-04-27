@@ -10,7 +10,7 @@ on:
       - test
   workflow_dispatch:
     inputs:
-      stage:
+      environment:
         description: 'Environment to deploy'
         required: true
         default: 'stage'
