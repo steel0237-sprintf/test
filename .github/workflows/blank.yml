@@ -26,7 +26,7 @@ jobs:
       - name: get config
         id: getconfig
         env:
-         CONFIG_JSON: ${{ var.CONFIG_JSON }}
+         CONFIG_JSON: ${{ vars.CONFIG_JSON }}
         run: |
           echo "CONFIG_JSON=${CONFIG_JSON}" >> $GITHUB_OUTPUT
 
