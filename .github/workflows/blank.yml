@@ -26,7 +26,7 @@ jobs:
       contents: read
       packages: write
     uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
-    if: ${{ inputs.environment }} != ""
+    if: ${{ !inputs.environment }}
     with:
       env: ${{ inputs.environment }}
 
