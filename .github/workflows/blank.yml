@@ -43,7 +43,6 @@ jobs:
       env: ${{ inputs.environment }}
       config: ${{ needs.set_environment.steps.getconfig.outputs.CONFIG_JSON }}
 
-
 #  build:
 #    runs-on: ubuntu-latest
 #    environment: ${{ inputs.stage }}
