@@ -28,6 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: view the secrets context
+        if: ${{ !inputs.environment }}
         run: |
              echo ${{ inputs.environment }}
 
