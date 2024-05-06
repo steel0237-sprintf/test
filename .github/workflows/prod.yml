@@ -1,0 +1,26 @@
+name: build and deployment prod
+
+#on:
+#  push:
+#    branches:
+#      - main
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+    uses: steel0237-sprintf/template/.github/workflows/php-build.yml@main
+    with:
+      env: prod
+
+  deploy:
+    permissions:
+      contents: read
+      packages: write
+    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
+    needs: build
+    with:
+      env: prod
