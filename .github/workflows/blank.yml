@@ -20,6 +20,7 @@ on:
           - djserver
           - femil
           - stage
+          - prod
 
 jobs:
   build:
@@ -30,7 +31,18 @@ jobs:
     with:
       env: ${{ inputs.environment || 'stage' }}
 
-#  build:
+  deploy:
+    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
+    with:
+      env: ${{ inputs.environment || 'stage' }}
+
+  deploy-prod:
+    uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
+    environment: prod
+    with:
+      env: prod
+
+
 #    runs-on: ubuntu-latest
 #    environment: ${{ inputs.stage }}
 #    steps:
