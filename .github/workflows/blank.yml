@@ -33,12 +33,13 @@ jobs:
 
   deploy:
     uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
+    needs: build
     with:
       env: ${{ inputs.environment || 'stage' }}
 
   deploy-prod:
+    needs: build
     uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
-    environment: prod
     with:
       env: prod
 
