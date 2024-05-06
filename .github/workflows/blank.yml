@@ -32,13 +32,19 @@ jobs:
       env: ${{ inputs.environment || 'stage' }}
 
   deploy:
+    permissions:
+      contents: read
+      packages: write
     uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
     needs: build
     with:
       env: ${{ inputs.environment || 'stage' }}
 
   deploy-prod:
-    needs: build
+    permissions:
+      contents: read
+      packages: write
+    needs: [ build, deploy ]
     uses: steel0237-sprintf/template/.github/workflows/deploy.yml@main
     with:
       env: prod
